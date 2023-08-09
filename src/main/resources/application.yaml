@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: ${STATISTICS_URL}
-    username: ${DB_USER}
-    password: ${DB_USER_PASS}
+    url: jdbc:postgresql://34.30.8.168:5432/anki?currentSchema=statistics
+    username: postgres
+    password: postgres1992
 
   flyway:
     schemas: statistics
