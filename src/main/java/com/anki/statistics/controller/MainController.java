@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  */
 
 @RestController
-@RequestMapping("example")
+@RequestMapping("new-example")
 @RequiredArgsConstructor
 public class MainController {
 
