@@ -29,4 +29,4 @@ spec:
     spec:
       containers:
         - name: statistics
-          image: us-central1-docker.pkg.dev/GOOGLE_PROJECT/stat istics/stat:version1
+          image: us-central1-docker.pkg.dev/GOOGLE_PROJECT/statistics/stat:version1
