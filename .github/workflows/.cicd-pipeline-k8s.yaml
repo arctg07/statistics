@@ -53,3 +53,4 @@ jobs:
           gcloud container clusters get-credentials translator-cluster --region us-central1
           sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" k8s-resources.yaml
           kubectl apply -f k8s-resources.yaml
+          kubectl rollout restart deployment/translator-app
