@@ -1,9 +1,9 @@
-name: "Deploy to k8s"
-run-name: ${{ github.actor }} try to deploy commit':' ${{ github.sha }}
+name: "Deploy STATISTICS-service to k8s"
+run-name: ${{ github.actor }} try to deploy commit ${{ github.sha }}
 
 on:
   push:
-    branches: [ dev, prod ]
+    branches: [ main ]
 
 jobs:
   setup-secrets:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: test setup secrets
         env:
-          DICTIONARY_URL: ${{ secrets.DICTIONARY_URL }}
+          DICTIONARY_URL: ${{ secrets.STATISTICS_URL }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_USER_PASS: ${{ secrets.DB_USER_PASS }}
         working-directory: ./src/main/resources
@@ -43,8 +43,8 @@ jobs:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
           gcloud auth configure-docker us-central1-docker.pkg.dev
-          docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/translator/anki:1.0.2 .
-          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/translator/anki:1.0.2
+          docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/statistics/stat:version1 .
+          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/statistics/stat:version1
 
       - name: deploy to gke
         env:

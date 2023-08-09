@@ -1,15 +1,17 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/anki?currentSchema=statistics
-    username: postgres
-    password: postgres
+    url: ${STATISTICS_URL}
+    username: ${DB_USER}
+    password: ${DB_USER_PASS}
+
   flyway:
     schemas: statistics
     user: postgres
     password: postgres
+#      enabled: false
   jpa:
     show-sql: true
 #    open-in-view: false

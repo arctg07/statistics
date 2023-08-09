@@ -1,16 +1,16 @@
-# Use the official Maven image as the base image
-FROM maven:3.8.3-openjdk-17-slim AS builder
+# Use the official Gradle image as the base image
+FROM gradle:8.2.1-jdk17-focal AS builder
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the pom.xml and project files to the container
-COPY pom.xml .
+COPY build.gradle.kts .
+COPY settings.gradle.kts .
 COPY src ./src
-COPY /frontend ./frontend/
 
-# Build the application using Maven
-RUN mvn clean package -Pproduction
+# Build the application using Gradle
+RUN gradle clean build
 
 # Use a lightweight container with OpenJDK 17 to run the application
 FROM openjdk:17-jdk AS runtime
@@ -19,11 +19,10 @@ FROM openjdk:17-jdk AS runtime
 WORKDIR /app
 
 # Copy the JAR file from the builder stage to the runtime stage
-COPY --from=builder /app/target/translator-anki-1.jar .
-COPY /frontend .
+COPY --from=builder /app/build/libs/statistics.jar .
 
 # Expose the port on which your Spring Boot app listens
-EXPOSE 8080
+EXPOSE 8081
 
 # Specify the command to run your application
-CMD ["java", "-jar", "translator-anki-1.jar"]
+CMD ["java", "-jar", "statistics.jar"]
