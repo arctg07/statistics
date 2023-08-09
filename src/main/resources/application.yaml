@@ -10,7 +10,7 @@ spring:
   flyway:
     schemas: statistics
     user: postgres
-    password: postgres
+    password: postgres1992
 #      enabled: false
   jpa:
     show-sql: true
