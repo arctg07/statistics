@@ -11,7 +11,7 @@ spring:
     schemas: statistics
     user: postgres
     password: postgres1992
-#      enabled: false
+    enabled: true
   jpa:
     show-sql: true
 #    open-in-view: false
