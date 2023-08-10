@@ -6,12 +6,10 @@ spring:
     url: jdbc:postgresql://34.30.8.168:5432/anki?currentSchema=statistics
     username: postgres
     password: postgres1992
-
   flyway:
     schemas: statistics
     user: postgres
     password: postgres1992
-    enabled: true
+
   jpa:
     show-sql: true
-#    open-in-view: false
