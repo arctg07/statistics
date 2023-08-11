@@ -20,7 +20,6 @@ jobs:
           sed -i "s|DICTIONARY_URL|$DICTIONARY_URL|g" application.yaml
           sed -i "s|DB_USER|$DB_USER|g" application.yaml
           sed -i "s|DB_USER_PASS|$DB_USER_PASS|g" application.yaml
-          
 
   deploy:
     needs: [ setup-secrets ]
