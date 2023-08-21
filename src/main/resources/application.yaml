@@ -3,16 +3,14 @@ server:
 
 spring:
   datasource:
-#    username: postgres
-#    password: postgres1992
     url: STATISTICS_URL
     username: DB_USER
     password: PASS
 
   flyway:
     schemas: statistics
-    user: postgres
-    password: postgres1992
+    user: DB_USER
+    password: PASS
 
   jpa:
     show-sql: true
