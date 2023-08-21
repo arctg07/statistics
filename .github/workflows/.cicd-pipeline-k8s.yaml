@@ -16,12 +16,12 @@ jobs:
         env:
           STATISTICS_URL: ${{ secrets.STATISTICS_URL }}
           DB_USER: ${{ secrets.DB_USER }}
-          DB_USER_PASS: ${{ secrets.DB_USER_PASS }}
+          PASS: ${{ secrets.DB_USER_PASS }}
         working-directory: ./src/main/resources
         run: |
           sed -i "s|STATISTICS_URL|$STATISTICS_URL|g" application.yaml
           sed -i "s|DB_USER|$DB_USER|g" application.yaml
-          sed -i "s|PASS|$DB_USER_PASS|g" application.yaml
+          sed -i "s|PASS|$PASS|g" application.yaml
 
       - name: install gcloud cli
         uses: google-github-actions/setup-gcloud@v0

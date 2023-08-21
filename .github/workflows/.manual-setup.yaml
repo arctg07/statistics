@@ -1,0 +1,28 @@
+name: "TEST SET-UP"
+run-name: ${{ github.actor }} try to deploy commit ${{ github.sha }}
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout before deploy
+        uses: actions/checkout@v3
+
+      - name: setup-secrets
+        env:
+          STATISTICS_URL: ${{ secrets.STATISTICS_URL }}
+          DB_USER: ${{ secrets.DB_USER }}
+          PASS: ${{ secrets.DB_USER_PASS }}
+        working-directory: ./src/main/resources
+        run: |
+          sed -i "s|STATISTICS_URL|$STATISTICS_URL|g" application.yaml
+          sed -i "s|DB_USER|$DB_USER|g" application.yaml
+          sed -i "s|PASS|$PASS|g" application.yaml
+
+          grep "url" application.yaml
+          grep "password" application.yaml
+          grep "username" application.yaml
