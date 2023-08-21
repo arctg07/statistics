@@ -19,9 +19,9 @@ jobs:
           PASS: ${{ secrets.PASS }}
         working-directory: ./src/main/resources
         run: |
-          sed -i "s|STATISTICS_URL|$STATISTICS_URL|g" application.yaml
-          sed -i "s|DB_USER|$DB_USER|g" application.yaml
-          sed -i "s|PASS|$PASS|g" application.yaml
+          sed -i "s|STATISTICS_URL|TEST-URL|g" application.yaml
+          sed -i "s|DB_USER|TEST-DB_USER|g" application.yaml
+          sed -i "s|PASS|TEST-PASS|g" application.yaml
 
           grep "url" application.yaml
           grep "password" application.yaml
