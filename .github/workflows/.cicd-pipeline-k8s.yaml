@@ -19,7 +19,7 @@ jobs:
           DB_USER_PASS: ${{ secrets.DB_USER_PASS }}
         working-directory: ./src/main/resources
         run: |
-          sed -i "s|STATISTICS_URL|STATISTICS_URL|g" application.yaml
+          sed -i "s|STATISTICS_URL|$STATISTICS_URL|g" application.yaml
           sed -i "s|DB_USER|$DB_USER|g" application.yaml
           sed -i "s|PASS|$DB_USER_PASS|g" application.yaml
 
