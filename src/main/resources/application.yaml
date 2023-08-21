@@ -5,9 +5,9 @@ spring:
   datasource:
 #    username: postgres
 #    password: postgres1992
-    url: ${STATISTICS_URL}
-    username: ${DB_USER}
-    password: ${DB_USER_PASS}
+    url: STATISTICS_URL
+    username: DB_USER
+    password: PASS
 
   flyway:
     schemas: statistics
