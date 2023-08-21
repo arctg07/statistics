@@ -1,5 +1,5 @@
 name: "Deploy STATISTICS-service to k8s"
-run-name: ${{ github.actor }} try to deploy commit ${{ github.sha }}
+run-name: ${{ github.actor }} try to deploy commit ${{ github.sha }} in the evening
 
 on:
   push:
