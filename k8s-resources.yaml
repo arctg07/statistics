@@ -17,12 +17,12 @@ kind: Deployment
 metadata:
   name: statistics-app-deployment
   labels:
-    app: statistics-app
+    app: statistics
 spec:
   selector:
     matchLabels:
       app: statistics
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
