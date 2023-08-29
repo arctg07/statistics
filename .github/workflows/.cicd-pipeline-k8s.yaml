@@ -17,6 +17,7 @@ jobs:
           STATISTICS_URL: ${{ secrets.STATISTICS_URL }}
           DB_USER: ${{ secrets.DB_USER }}
           PASS: ${{ secrets.PASS }}
+          KAFKA_SERVER: ${{ secrets.KAFKA_SERVER }}
         working-directory: ./src/main/resources
         run: |
           sed -i "s|STATISTICS_URL|$STATISTICS_URL|g" application.yaml
