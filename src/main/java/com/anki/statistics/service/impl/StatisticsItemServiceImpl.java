@@ -25,8 +25,8 @@ public class StatisticsItemServiceImpl implements StatisticsItemService {
     public void createNewItem(StatisticsMessage message) {
         StatisticsItem statisticsItem = new StatisticsItem();
         statisticsItem.setMainLanguage(message.lang());
-        statisticsItem.setWordEng(message.sentence().eng());
-        statisticsItem.setWordRus(message.sentence().rus());
+        statisticsItem.setWordEng(message.eng());
+        statisticsItem.setWordRus(message.rus());
         statisticsItem.setCount(String.valueOf(message.count()));
 
         statisticsItemRepo.save(statisticsItem);
